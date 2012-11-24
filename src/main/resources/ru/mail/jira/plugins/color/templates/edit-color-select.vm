@@ -1,0 +1,12 @@
+#customControlHeader ($action $customField.id $customField.name $fieldLayoutItem.required $displayParameters $auiparams)
+<select class="select" name="$customField.id" id="$customField.id" onchange="ru_mail_change_color_field_value('$customField.id');">
+    #if (!$fieldLayoutItem || $fieldLayoutItem.required == false)
+        <option value="-1">$i18n.getText("common.words.none")</option>
+    #else
+        <option value="">$i18n.getText("common.words.none")</option>
+    #end
+    #foreach ($option in $configs.options)
+        <option style="color: $option.value;" #if($value && $value == $option.value)selected="selected"#end value="$textutils.htmlEncode($option.value)">$option.value</option>
+    #end
+</select>
+#customControlFooter ($action $customField.id $fieldLayoutItem.fieldDescription $displayParameters $auiparams)
