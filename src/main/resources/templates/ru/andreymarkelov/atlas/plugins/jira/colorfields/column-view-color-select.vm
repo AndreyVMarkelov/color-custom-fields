@@ -1,3 +1,8 @@
-#if ($value)
-    <div style="display:inline-block; background-color:#$colorHex; width:50px; height:15px; text-align:center; border: thin solid #ccc"/>
+$webResourceManager.requireResource("ru.andreymarkelov.atlas.plugins.colorfields:color-resources")
+#if($value)
+    #if(${displayParameters.excel_view})
+        <div style="display:inline-block; background-color:$!colorHex; width:50px; height:16px; text-align:left; border: thin solid #ccc">$!colorHex</div>
+    #else
+        <div style="display:inline-block; background-color:$!colorHex; width:50px; height:16px; text-align:center; border: thin solid #ccc"/>
+    #end
 #end

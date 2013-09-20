@@ -1,0 +1,19 @@
+$webResourceManager.requireResource("ru.andreymarkelov.atlas.plugins.colorfields:color-resources")
+#controlHeader ($action $customField.id $customField.name $fieldLayoutItem.required $displayParameters.noHeader)
+#if ($displayParameters.defaultScreen)
+    <input name="$customField.id" id="$customField.id" type="text" value="$!value"/>
+#else
+    <input name="$customField.id" id="$customField.id" type="text" value="$!value"/>
+#end
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        JIRA.bind(JIRA.Events.NEW_CONTENT_ADDED, function(e, context) {
+            colorpickerfield_init_picker();
+        });
+    });
+
+    function colorpickerfield_init_picker() {
+        jQuery('#$customField.id').colorPicker();
+    }
+</script>
+#controlFooter ($action $fieldLayoutItem.fieldDescription $displayParameters.noHeader)
