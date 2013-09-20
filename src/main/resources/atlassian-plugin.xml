@@ -28,9 +28,9 @@
 
     <customfield-searcher key="color-searcher" name="Select Color Custom Field Searcher" class="com.atlassian.jira.issue.customfields.searchers.SelectSearcher">
         <description>The searcher for Select Color Custom Field</description>
-        <resource type="velocity" name="search" location="templates/plugins/fields/edit-searcher/search-select.vm"/>
-        <resource type="velocity" name="view" location="templates/plugins/fields/view-searcher/view-searcher-select.vm"/>
-        <resource type="velocity" name="label" location="templates/plugins/fields/view-searcher/label-searcher-htmltext.vm"/>
+        <resource type="velocity" name="search" location="/templates/ru/andreymarkelov/atlas/plugins/jira/colorfields/search-color-select.vm"/>
+        <resource type="velocity" name="view" location="/templates/ru/andreymarkelov/atlas/plugins/jira/colorfields/view-searcher-color-select.vm"/>
+        <resource type="velocity" name="label" location="/templates/ru/andreymarkelov/atlas/plugins/jira/colorfields/label-color-select.vm"/>
         <valid-customfield-type package="${project.groupId}.${project.artifactId}" key="select-color-custom-field"/>
     </customfield-searcher>
 

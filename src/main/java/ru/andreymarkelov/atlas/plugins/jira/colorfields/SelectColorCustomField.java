@@ -25,7 +25,7 @@ public class SelectColorCustomField extends SelectCFType {
     private String getColorString(Color color) {
         String rgb = Integer.toHexString(color.getRGB());
         rgb = rgb.substring(2, rgb.length());
-        return rgb;
+        return "#".concat(rgb);
     }
 
     @Override

@@ -1,12 +1,22 @@
 #customControlHeader ($action $customField.id $customField.name $fieldLayoutItem.required $displayParameters $auiparams)
-<select class="select" name="$customField.id" id="$customField.id" onchange="ru_mail_change_color_field_value('$customField.id');">
-    #if (!$fieldLayoutItem || $fieldLayoutItem.required == false)
+#set($val = "")
+#foreach($option in $configs.options)
+    #if(!$option.disabled || $option.disabled == false || ($value && $value == $option.optionId.toString()))
+        #if($value && $value == $option.optionId.toString())
+            #set($val = $option.value)
+        #end
+    #end
+#end
+<select class="select" style="color: $val" name="$customField.id" id="$customField.id" onchange="colorpickerfield_change_color_field_value('$customField.id');">
+    #if(!$fieldLayoutItem || $fieldLayoutItem.required == false)
         <option value="-1">$i18n.getText("common.words.none")</option>
     #else
         <option value="">$i18n.getText("common.words.none")</option>
     #end
-    #foreach ($option in $configs.options)
-        <option style="color: $option.value;" #if($value && $value == $option.value)selected="selected"#end value="$textutils.htmlEncode($option.value)">$option.value</option>
+    #foreach($option in $configs.options)
+        #if(!$option.disabled || $option.disabled == false || ($value && $value == $option.optionId.toString()))
+            <option style="color: $option.value;" #if($value && $value == $option.optionId.toString())selected="selected"#end value="$option.optionId">$option.value</option>
+        #end
     #end
 </select>
 #customControlFooter ($action $customField.id $fieldLayoutItem.fieldDescription $displayParameters $auiparams)

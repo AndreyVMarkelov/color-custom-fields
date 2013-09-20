@@ -7,13 +7,16 @@ $webResourceManager.requireResource("ru.andreymarkelov.atlas.plugins.colorfields
 #end
 <script type="text/javascript">
     jQuery(document).ready(function() {
+        colorpickerfield_init_picker("$customField.id");
         JIRA.bind(JIRA.Events.NEW_CONTENT_ADDED, function(e, context) {
-            colorpickerfield_init_picker();
+            colorpickerfield_init_picker("$customField.id");
         });
     });
 
-    function colorpickerfield_init_picker() {
-        jQuery('#$customField.id').colorPicker();
+    function colorpickerfield_init_picker(cfId) {
+        if (!jQuery("#" + cfId).parent().find("div.colorPicker-picker").length) {
+            jQuery("#" + cfId).colorPicker();
+        }
     }
 </script>
 #controlFooter ($action $fieldLayoutItem.fieldDescription $displayParameters.noHeader)
