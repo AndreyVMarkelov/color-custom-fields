@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>ru.mail.jira.plugins</groupId>
-    <artifactId>color-custom-field</artifactId>
+    <groupId>ru.andreymarkelov.atlas.plugins</groupId>
+    <artifactId>colorfields</artifactId>
     <packaging>atlassian-plugin</packaging>
-
-    <name>The Color Custom Field</name>
-    <version>1.1</version>
-    <description>This is the Plug-In for Atlassian JIRA which will paint selected custom field value to appropriate color</description>
-
+    <version>1.0</version>
     <organization>
-        <name>Mail.Ru Group</name>
-        <url>http://corp.mail.ru/en/</url>
+        <name>Andrey Markelov</name>
+        <url>http://ru.linkedin.com/in/andreymarkelov/</url>
     </organization>
-
+    <name>Color Custom Fields</name>
+    <description>This provides fields which renders as color box.</description>
     <build>
         <plugins>
             <plugin>
                 <groupId>com.atlassian.maven.plugins</groupId>
                 <artifactId>maven-jira-plugin</artifactId>
-                <version>3.7</version>
+                <version>${amps.version}</version>
                 <extensions>true</extensions>
                 <configuration>
                     <productVersion>${jira.version}</productVersion>
@@ -35,11 +33,16 @@
             </plugin>
         </plugins>
     </build>
-
     <dependencies>
         <dependency>
             <groupId>com.atlassian.jira</groupId>
-            <artifactId>atlassian-jira</artifactId>
+            <artifactId>jira-api</artifactId>
+            <version>${jira.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.atlassian.jira</groupId>
+            <artifactId>jira-core</artifactId>
             <version>${jira.version}</version>
             <scope>provided</scope>
         </dependency>
@@ -50,10 +53,10 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.atlassian.jira</groupId>
-            <artifactId>jira-func-tests</artifactId>
-            <version>${jira.version}</version>
-            <scope>test</scope>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.6.6</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>
@@ -62,16 +65,9 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
     <properties>
-        <!-- <jira.version>5.1.8</jira.version>
-        <jira.data.version>5.1</jira.data.version>
-        <amps.version>4.0</amps.version-->
-        <jira.version>4.3.4</jira.version>
-        <jira.data.version>4.3</jira.data.version>
-        <amps.version>4.0</amps.version>
-        <!-- <jira.version>4.4.3</jira.version>
-        <jira.data.version>4.4</jira.data.version>
-        <amps.version>4.0</amps.version-->
+        <jira.version>5.2.8</jira.version>
+        <amps.version>4.1.6</amps.version>
+        <useFastdevCli>false</useFastdevCli>
     </properties>
 </project>

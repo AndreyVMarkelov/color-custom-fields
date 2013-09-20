@@ -4,46 +4,50 @@
         <description>${project.description}</description>
         <version>${project.version}</version>
         <vendor name="${project.organization.name}" url="${project.organization.url}"/>
-        <param name="plugin-logo">/media/pencils.png</param>
-        <param name="plugin-icon">/media/pencils.png</param>
-        <param name="vendor-icon">/media/icon.png</param>
-        <param name="vendor-logo">/media/logo.png</param>
+        <param name="plugin-logo">/media/logo.png</param>
+        <param name="plugin-icon">/media/icon.png</param>
+        <param name="vendor-icon">/media/vicon.png</param>
+        <param name="vendor-logo">/media/vicon.png</param>
     </plugin-info>
 
-    <!-- Custom field -->
-    <customfield-type key="color-custom-field" name="Color Custom Field" class="ru.mail.jira.plugins.jira.customfields.ColorCustomField">
-        <description key="color-custom-field.description">The Color Custom Field Plug-In</description>
-        <resource type="velocity" name="view" location="/ru/mail/jira/plugins/color/templates/column-view-color-select.vm"/>
-        <resource type="velocity" name="column-view" location="/ru/mail/jira/plugins/color/templates/view-color-select.vm"/>
-        <resource type="velocity" name="edit" location="/ru/mail/jira/plugins/color/templates/edit-color-select.vm"/>
-        <resource type="velocity" name="xml" location="/ru/mail/jira/plugins/color/templates/xml-color-select.vm"/>
+    <customfield-type key="select-color-custom-field" name="Select Color Custom Field" class="ru.andreymarkelov.atlas.plugins.jira.colorfields.SelectColorCustomField">
+        <description>The Color Custom Field Plug-In</description>
+        <resource type="velocity" name="view" location="/templates/ru/andreymarkelov/atlas/plugins/jira/colorfields/view-colorpicker.vm"/>
+        <resource type="velocity" name="column-view" location="/templates/ru/andreymarkelov/atlas/plugins/jira/colorfields/view-colorpicker.vm"/>
+        <resource type="velocity" name="edit" location="/templates/ru/andreymarkelov/atlas/plugins/jira/colorfields/view-colorpicker.vm"/>
+        <resource type="velocity" name="xml" location="/templates/ru/andreymarkelov/atlas/plugins/jira/colorfields/view-colorpicker.vm"/>
     </customfield-type>
 
-    <!-- Custom field searcher -->
-    <customfield-searcher key="color-searcher" name="Color Searcher"
-                          i18n-name-key="color-custom-field.searchername"
-                          class="com.atlassian.jira.issue.customfields.searchers.SelectSearcher">
-        <description key="color-custom-field.color-searcher">Search for Color</description>
+    <customfield-type key="picker-color-custom-field" name="Picker Color Custom Field" class="ru.andreymarkelov.atlas.plugins.jira.colorfields.ColorPickerField">
+        <description>The Color Picker Field Plugin</description>
+        <resource name="view" type="velocity" location="/templates/ru/andreymarkelov/atlas/plugins/jira/colorfields/view-colorpicker.vm"/>
+        <resource name="column-view" type="velocity" location="/templates/ru/andreymarkelov/atlas/plugins/jira/colorfields/view-colorpicker.vm"/>
+        <resource name="xml" type="velocity" location="/templates/ru/andreymarkelov/atlas/plugins/jira/colorfields/view-colorpicker.vm"/>
+        <resource name="edit" type="velocity" location="/templates/ru/andreymarkelov/atlas/plugins/jira/colorfields/view-colorpicker.vm"/>
+    </customfield-type>
+
+    <customfield-searcher key="color-searcher" name="Select Color Custom Field Searcher" class="com.atlassian.jira.issue.customfields.searchers.SelectSearcher">
+        <description>Search for Color</description>
         <resource type="velocity" name="search" location="templates/plugins/fields/edit-searcher/search-select.vm"/>
         <resource type="velocity" name="view" location="templates/plugins/fields/view-searcher/view-searcher-select.vm"/>
         <resource type="velocity" name="label" location="templates/plugins/fields/view-searcher/label-searcher-htmltext.vm"/>
-        <valid-customfield-type package="${project.groupId}.${project.artifactId}" key="color-custom-field"/>
+        <valid-customfield-type package="${project.groupId}.${project.artifactId}" key="select-color-custom-field"/>
     </customfield-searcher>
 
-    <web-resource key="color-resources" name="Color custom fields resources">
-        <resource type="download" name="color_field_script.js" location="ru/mail/jira/plugins/color/media/color_field_script.js"/>
+    <web-resource key="color-resources" name="Color Custom Fields Resources">
+        <resource type="download" name="color_field_script.js" location="media/color_field_script.js"/>
+        <resource type="download" name="colorPicker.css" location="media/colorPicker.css"/>
+        <resource type="download" name="jquery.colorPicker.js" location="media/jquery.colorPicker.js"/>
+        <resource type="download" name="arrow.png" location="media/arrow.png"/>
         <context>atl.general</context>
     </web-resource>
 
-    <!-- Components, needed for injection  -->
-    <component key="ComponentFactory" class="com.atlassian.jira.util.JiraComponentFactory">
+    <component key="ComponentFactory" name="Component Factory" class="com.atlassian.jira.util.JiraComponentFactory">
         <interface>com.atlassian.jira.util.ComponentFactory</interface>
     </component>
-
-    <component key="ComponentLocator" class="com.atlassian.jira.util.JiraComponentLocator">
+    <component key="ComponentLocator" name="Component Locator" class="com.atlassian.jira.util.JiraComponentLocator">
         <interface>com.atlassian.jira.util.ComponentLocator</interface>
     </component>
 
-    <!-- Internalization support -->
-    <resource type="i18n" name="color-i18n" location="ru.mail.jira.plugins.color.i18n.color" />
+    <resource type="i18n" name="color-i18n" location="i18n.color"/>
 </atlassian-plugin>
