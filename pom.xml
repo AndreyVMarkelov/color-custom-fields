@@ -11,7 +11,6 @@
         <url>http://ru.linkedin.com/in/andreymarkelov/</url>
     </organization>
     <name>Color Custom Fields</name>
-    <description>This provides fields which renders as color box.</description>
     <build>
         <plugins>
             <plugin>
@@ -78,4 +77,5 @@
         <amps.version>4.1.6</amps.version>
         <useFastdevCli>false</useFastdevCli>
     </properties>
+    <description>This provides fields which are displayed as colored areas.</description>
 </project>
