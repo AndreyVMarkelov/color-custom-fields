@@ -40,6 +40,7 @@
         <resource type="download" name="jquery.colorPicker.js" location="media/jquery.colorPicker.js"/>
         <resource type="download" name="arrow.png" location="media/arrow.png"/>
         <context>color-resources</context>
+        <context>atl.general</context>
     </web-resource>
 
     <component key="ComponentFactory" name="Component Factory" class="com.atlassian.jira.util.JiraComponentFactory">
