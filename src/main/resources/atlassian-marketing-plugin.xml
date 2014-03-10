@@ -1,0 +1,19 @@
+<atlassian-plugin-marketing>
+    <compatibility>
+        <product name="jira" min="5.0" max="6.3"/>
+    </compatibility>
+
+    <logo image="ru/andreymarkelov/atlas/plugins/jira/colorfields/images/logo.png"/>
+    <banner image="ru/andreymarkelov/atlas/plugins/jira/colorfields/images/vc3.png"/>
+
+    <highlights>
+        <highlight image="ru/andreymarkelov/atlas/plugins/jira/colorfields/images/vc3.png" cropped="ru/andreymarkelov/atlas/plugins/jira/colorfields/images/vc3.png"/>
+        <highlight image="ru/andreymarkelov/atlas/plugins/jira/colorfields/images/vc4.png" cropped="ru/andreymarkelov/atlas/plugins/jira/colorfields/images/vc4.png"/>
+        <highlight image="ru/andreymarkelov/atlas/plugins/jira/colorfields/images/vc5.png" cropped="ru/andreymarkelov/atlas/plugins/jira/colorfields/images/vc5.png"/>
+    </highlights>
+
+    <screenshots>
+        <screenshot image="ru/andreymarkelov/atlas/plugins/jira/colorfields/images/vc1.png"/>
+        <screenshot image="ru/andreymarkelov/atlas/plugins/jira/colorfields/images/vc2.png"/>
+    </screenshots>
+</atlassian-plugin-marketing>

@@ -4,10 +4,11 @@
         <description>${project.description}</description>
         <version>${project.version}</version>
         <vendor name="${project.organization.name}" url="${project.organization.url}"/>
-        <param name="plugin-logo">media/logo.png</param>
-        <param name="plugin-icon">media/icon.png</param>
-        <param name="vendor-icon">media/vicon.png</param>
-        <param name="vendor-logo">media/vicon.png</param>
+        <param name="plugin-logo">ru/andreymarkelov/atlas/plugins/jira/colorfields/images/logo.png</param>
+        <param name="plugin-icon">ru/andreymarkelov/atlas/plugins/jira/colorfields/images/icon.png</param>
+        <param name="plugin-banner">ru/andreymarkelov/atlas/plugins/jira/colorfields/images/vc3.png</param>
+        <param name="vendor-icon">ru/andreymarkelov/atlas/plugins/jira/colorfields/images/144.jpg</param>
+        <param name="vendor-logo">ru/andreymarkelov/atlas/plugins/jira/colorfields/images/32.jpg</param>
     </plugin-info>
 
     <customfield-type key="select-color-custom-field" name="Select Color Custom Field" class="ru.andreymarkelov.atlas.plugins.jira.colorfields.SelectColorCustomField">
@@ -16,6 +17,7 @@
         <resource type="velocity" name="column-view" location="/templates/ru/andreymarkelov/atlas/plugins/jira/colorfields/column-view-color-select.vm"/>
         <resource type="velocity" name="edit" location="/templates/ru/andreymarkelov/atlas/plugins/jira/colorfields/edit-color-select.vm"/>
         <resource type="velocity" name="xml" location="/templates/ru/andreymarkelov/atlas/plugins/jira/colorfields/xml-color-select.vm"/>
+        <resource type="download" name="customfieldpreview.png" location="ru/andreymarkelov/atlas/plugins/jira/colorfields/images/color-select.png"/>
     </customfield-type>
 
     <customfield-type key="picker-color-custom-field" name="Picker Color Custom Field" class="ru.andreymarkelov.atlas.plugins.jira.colorfields.ColorPickerField">
@@ -24,6 +26,7 @@
         <resource name="column-view" type="velocity" location="/templates/ru/andreymarkelov/atlas/plugins/jira/colorfields/column-view-colorpicker.vm"/>
         <resource name="xml" type="velocity" location="/templates/ru/andreymarkelov/atlas/plugins/jira/colorfields/xml-colorpicker.vm"/>
         <resource name="edit" type="velocity" location="/templates/ru/andreymarkelov/atlas/plugins/jira/colorfields/edit-colorpicker.vm"/>
+        <resource type="download" name="customfieldpreview.png" location="ru/andreymarkelov/atlas/plugins/jira/colorfields/images/color-picker.png"/>
     </customfield-type>
 
     <customfield-searcher key="color-searcher" name="Select Color Custom Field Searcher" class="com.atlassian.jira.issue.customfields.searchers.SelectSearcher">
@@ -35,10 +38,10 @@
     </customfield-searcher>
 
     <web-resource key="color-resources" name="Color Custom Fields Resources">
-        <resource type="download" name="color_field_script.js" location="media/color_field_script.js"/>
-        <resource type="download" name="colorPicker.css" location="media/colorPicker.css"/>
-        <resource type="download" name="jquery.colorPicker.js" location="media/jquery.colorPicker.js"/>
-        <resource type="download" name="arrow.png" location="media/arrow.png"/>
+        <resource type="download" name="color_field_script.js" location="ru/andreymarkelov/atlas/plugins/jira/colorfields/js/color_field_script.js"/>
+        <resource type="download" name="colorPicker.css" location="ru/andreymarkelov/atlas/plugins/jira/colorfields/css/colorPicker.css"/>
+        <resource type="download" name="jquery.colorPicker.js" location="ru/andreymarkelov/atlas/plugins/jira/colorfields/js/jquery.colorPicker.js"/>
+        <resource type="download" name="arrow.png" location="ru/andreymarkelov/atlas/plugins/jira/colorfields/images/arrow.png"/>
         <context>color-resources</context>
         <context>atl.general</context>
     </web-resource>
@@ -50,5 +53,5 @@
         <interface>com.atlassian.jira.util.ComponentLocator</interface>
     </component>
 
-    <resource type="i18n" name="color-i18n" location="i18n.color"/>
+    <resource type="i18n" name="color-i18n" location="ru.andreymarkelov.atlas.plugins.jira.colorfields.i18n.color"/>
 </atlassian-plugin>

@@ -5,12 +5,16 @@
     <groupId>ru.andreymarkelov.atlas.plugins</groupId>
     <artifactId>colorfields</artifactId>
     <packaging>atlassian-plugin</packaging>
-    <version>1.0</version>
+    <version>1.1</version>
+
     <organization>
         <name>Andrey Markelov</name>
         <url>http://ru.linkedin.com/in/andreymarkelov/</url>
     </organization>
+
     <name>Color Custom Fields</name>
+    <description>This provides fields which are displayed as colored areas.</description>
+
     <build>
         <plugins>
             <plugin>
@@ -71,11 +75,11 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
     <properties>
         <jira.version>5.0</jira.version>
-        <!--<jira.version>6.0.1</jira.version>-->
+        <!--<jira.version>6.1-OD-07</jira.version>-->
         <amps.version>4.1.6</amps.version>
         <useFastdevCli>false</useFastdevCli>
     </properties>
-    <description>This provides fields which are displayed as colored areas.</description>
 </project>
