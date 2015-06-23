@@ -1,5 +1,4 @@
-#searcherHeader ($customField)
+#disable_html_escaping()
 #if ($value)
-$value
+    $cfValueEncoder.encodeForHtml($value)
 #end
-#searcherFooter ($customField)
