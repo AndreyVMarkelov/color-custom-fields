@@ -1,5 +1,8 @@
 package ru.andreymarkelov.atlas.plugins.jira.colorfields;
 
+import java.util.Map;
+import java.util.Objects;
+
 import com.atlassian.jira.issue.Issue;
 import com.atlassian.jira.issue.customfields.impl.SelectCFType;
 import com.atlassian.jira.issue.customfields.manager.GenericConfigManager;
@@ -9,11 +12,11 @@ import com.atlassian.jira.issue.fields.CustomField;
 import com.atlassian.jira.issue.fields.layout.field.FieldLayoutItem;
 import com.atlassian.jira.issue.fields.rest.json.beans.JiraBaseUrls;
 
-import java.awt.*;
-import java.lang.reflect.Field;
-import java.util.Map;
+import ru.andreymarkelov.atlas.plugins.jira.util.ColorResolver;
 
 public class SelectColorCustomField extends SelectCFType {
+    private static ColorResolver colorResolver = new ColorResolver();
+
     public SelectColorCustomField(
             CustomFieldValuePersister customFieldValuePersister,
             OptionsManager optionsManager,
@@ -22,35 +25,18 @@ public class SelectColorCustomField extends SelectCFType {
         super(customFieldValuePersister, optionsManager, genericConfigManager, jiraBaseUrls);
     }
 
-    private String getColorString(Color color) {
-        String rgb = Integer.toHexString(color.getRGB());
-        rgb = rgb.substring(2, rgb.length());
-        return "#".concat(rgb);
-    }
-
     @Override
-    public Map<String, Object> getVelocityParameters(final Issue issue, final CustomField field, final FieldLayoutItem fieldLayoutItem) {
-        final Map<String, Object> map = super.getVelocityParameters(issue, field, fieldLayoutItem);
+    public Map<String, Object> getVelocityParameters(final Issue issue, final CustomField customField, final FieldLayoutItem fieldLayoutItem) {
+        final Map<String, Object> map = super.getVelocityParameters(issue, customField, fieldLayoutItem);
+        map.put("colorResolver", colorResolver);
 
         if (issue == null) {
             return map;
         }
 
-        Object color = issue.getCustomFieldValue(field);
-        if (null != color) {
-            try {
-                Color c = Color.decode(color.toString());
-                map.put("colorHex", getColorString(c));
-            }
-            catch (NumberFormatException nfe) {
-                try {
-                    Field colorField = Color.class.getField(color.toString().toLowerCase());
-                    Color c = (Color) colorField.get(null);
-                    map.put("colorHex", getColorString(c));
-                } catch (Exception ce) {
-                    map.put("colorHex", getColorString(Color.white));
-                }
-            }
+        Object color = issue.getCustomFieldValue(customField);
+        if (Objects.nonNull(color)) {
+            map.put("colorHex", colorResolver.getHexColor(color.toString()));
         }
         return map;
     }

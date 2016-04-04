@@ -4,11 +4,11 @@
     <groupId>ru.andreymarkelov.atlas.plugins</groupId>
     <artifactId>colorfields</artifactId>
     <packaging>atlassian-plugin</packaging>
-    <version>1.2.3</version>
+    <version>1.2.4</version>
 
     <organization>
         <name>Andrey Markelov</name>
-        <url>https://www.elance.com/s/andrey_v_markelov/</url>
+        <url>https://ru.linkedin.com/in/andreymarkelov</url>
     </organization>
 
     <name>Color Custom Fields</name>
@@ -36,8 +36,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>2.3.2</version>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -59,9 +59,9 @@
     </dependencies>
 
     <properties>
-        <jira.version>6.3</jira.version>
-        <jira.rest.version>5.0</jira.rest.version>
-        <amps.version>5.0.13</amps.version>
+        <jira.version>7.0.0</jira.version>
+        <jira.rest.version>7.0.0</jira.rest.version>
+        <amps.version>6.1.0</amps.version>
         <useFastdevCli>false</useFastdevCli>
     </properties>
 </project>
