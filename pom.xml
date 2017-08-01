@@ -4,7 +4,7 @@
     <groupId>ru.andreymarkelov.atlas.plugins</groupId>
     <artifactId>colorfields</artifactId>
     <packaging>atlassian-plugin</packaging>
-    <version>1.2.7</version>
+    <version>1.2.8</version>
 
     <organization>
         <name>Andrey Markelov</name>
