@@ -1,11 +1,12 @@
 package ru.andreymarkelov.atlas.plugins.jira.util;
 
-import java.awt.Color;
+import org.apache.commons.lang3.StringUtils;
+
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
-import org.springframework.util.StringUtils;
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
 public class ColorResolver {
     private static final Map<String, String> supportedColors = new HashMap<>();
@@ -151,14 +152,15 @@ public class ColorResolver {
         supportedColors.put("slategray", "#708090");
         supportedColors.put("darkslategray", "#2F4F4F");
         supportedColors.put("black", "#000000");
+        supportedColors.put("amber", "#FFBF00");
     }
 
     public String getHexColor(String color) {
-        if (Objects.isNull(color)) {
+        if (isBlank(color)) {
             return null;
         }
 
-        String colorKey = StringUtils.trimAllWhitespace(color).toLowerCase();
+        String colorKey = StringUtils.trim(color).toLowerCase();
         if (supportedColors.containsKey(colorKey)) {
             return supportedColors.get(colorKey);
         }
