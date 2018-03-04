@@ -1,12 +1,12 @@
 package ru.andreymarkelov.atlas.plugins.jira.util;
 
-import org.apache.commons.lang3.StringUtils;
-
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.lang.Integer.toHexString;
 import static org.apache.commons.lang3.StringUtils.isBlank;
+import static org.apache.commons.lang3.StringUtils.trim;
 
 public class ColorResolver {
     private static final Map<String, String> supportedColors = new HashMap<>();
@@ -160,7 +160,7 @@ public class ColorResolver {
             return null;
         }
 
-        String colorKey = StringUtils.trim(color).toLowerCase();
+        String colorKey = trim(color).toLowerCase();
         if (supportedColors.containsKey(colorKey)) {
             return supportedColors.get(colorKey);
         }
@@ -173,7 +173,7 @@ public class ColorResolver {
     }
 
     private String getColorString(Color color) {
-        String rgb = Integer.toHexString(color.getRGB());
+        String rgb = toHexString(color.getRGB());
         rgb = rgb.substring(2, rgb.length());
         return "#".concat(rgb);
     }

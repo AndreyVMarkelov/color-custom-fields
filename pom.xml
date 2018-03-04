@@ -4,7 +4,7 @@
     <groupId>ru.andreymarkelov.atlas.plugins</groupId>
     <artifactId>colorfields</artifactId>
     <packaging>atlassian-plugin</packaging>
-    <version>1.2.10</version>
+    <version>1.2.12</version>
 
     <organization>
         <name>Andrey Markelov</name>
@@ -60,9 +60,11 @@
 
     <properties>
         <jira.version>7.0.0</jira.version>
-        <jira.data.version>7.0.0</jira.data.version>
-        <amps.version>6.2.9</amps.version>
+        <jira.data.version>${jira.version}</jira.data.version>
+        <amps.version>6.3.15</amps.version>
         <useFastdevCli>false</useFastdevCli>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
     </properties>
 </project>

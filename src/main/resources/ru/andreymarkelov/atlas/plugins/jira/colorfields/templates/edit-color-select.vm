@@ -8,7 +8,7 @@ $webResourceManager.requireResource("ru.andreymarkelov.atlas.plugins.colorfields
         #end
     #end
 #end
-<select class="select" style="color: $val" name="$customField.id" id="$customField.id" onchange="colorpickerfield_change_color_field_value('$customField.id');">
+<select class="select" #if($!val != "")style="color: $val"#end name="$customField.id" id="$customField.id" onchange="colorpickerfield_change_color_field_value('$customField.id');">
     #if(!$fieldLayoutItem || $fieldLayoutItem.required == false)
         <option value="-1">$i18n.getText("common.words.none")</option>
     #else
