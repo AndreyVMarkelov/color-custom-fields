@@ -3,6 +3,6 @@ $webResourceManager.requireResource("ru.andreymarkelov.atlas.plugins.colorfields
     #if(${displayParameters.excel_view})
         <div style="display:inline-block; background-color:$value; width:50px; height:16px; text-align:left; border: thin solid #ccc">$value</div>
     #else
-        <div style="display:inline-block; background-color:$value; width:50px; height:16px; text-align:center; border: thin solid #ccc"/>
+        <div style="background-color: ${value}; padding-left: 50px; padding-top: 10px; padding-bottom: 10px; padding-right: 10px; border: thin solid #ccc;"></div>
     #end
 #end
