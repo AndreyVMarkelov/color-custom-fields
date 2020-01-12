@@ -3,6 +3,6 @@ function colorpickerfield_change_color_field_value(cfId) {
     if (val == -1 || val == "") {
         jQuery('#' + cfId).css('color', '');
     } else {
-        jQuery('#' + cfId).css('color', jQuery('#' + cfId + ' :selected').text());
+        jQuery('#' + cfId).css('color', jQuery('#' + cfId + " option:selected").attr("current-color"));
     }
 }

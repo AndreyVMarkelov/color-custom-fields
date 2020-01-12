@@ -1,8 +1,5 @@
 package ru.andreymarkelov.atlas.plugins.jira.colorfields;
 
-import java.util.Map;
-import java.util.Objects;
-
 import com.atlassian.jira.issue.Issue;
 import com.atlassian.jira.issue.customfields.impl.SelectCFType;
 import com.atlassian.jira.issue.customfields.manager.GenericConfigManager;
@@ -11,18 +8,21 @@ import com.atlassian.jira.issue.customfields.persistence.CustomFieldValuePersist
 import com.atlassian.jira.issue.fields.CustomField;
 import com.atlassian.jira.issue.fields.layout.field.FieldLayoutItem;
 import com.atlassian.jira.issue.fields.rest.json.beans.JiraBaseUrls;
+import ru.andreymarkelov.atlas.plugins.jira.colorfields.service.ColorResolver;
 
-import ru.andreymarkelov.atlas.plugins.jira.util.ColorResolver;
+import java.util.Map;
 
 public class SelectColorCustomField extends SelectCFType {
-    private static ColorResolver colorResolver = new ColorResolver();
+    private final ColorResolver colorResolver;
 
     public SelectColorCustomField(
             CustomFieldValuePersister customFieldValuePersister,
             OptionsManager optionsManager,
             GenericConfigManager genericConfigManager,
-            JiraBaseUrls jiraBaseUrls) {
+            JiraBaseUrls jiraBaseUrls,
+            ColorResolver colorResolver) {
         super(customFieldValuePersister, optionsManager, genericConfigManager, jiraBaseUrls);
+        this.colorResolver = colorResolver;
     }
 
     @Override
@@ -35,8 +35,8 @@ public class SelectColorCustomField extends SelectCFType {
         }
 
         Object color = issue.getCustomFieldValue(customField);
-        if (Objects.nonNull(color)) {
-            map.put("colorHex", colorResolver.getHexColor(color.toString()));
+        if (color != null) {
+            map.put("colorHex", colorResolver.resolveColor(color.toString()));
         }
         return map;
     }

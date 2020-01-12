@@ -8,7 +8,7 @@ $webResourceManager.requireResource("ru.andreymarkelov.atlas.plugins.colorfields
         #end
     #end
 #end
-<select class="select" #if($!val != "")style="color: $val"#end name="$customField.id" id="$customField.id" onchange="colorpickerfield_change_color_field_value('$customField.id');">
+<select class="select" #if($!val != "")style="color: $colorResolver.resolveColor($val)"#end name="$customField.id" id="$customField.id" onchange="colorpickerfield_change_color_field_value('$customField.id');">
     #if(!$fieldLayoutItem || $fieldLayoutItem.required == false)
         <option value="-1">$i18n.getText("common.words.none")</option>
     #else
@@ -16,7 +16,7 @@ $webResourceManager.requireResource("ru.andreymarkelov.atlas.plugins.colorfields
     #end
     #foreach($option in $configs.options)
         #if(!$option.disabled || $option.disabled == false || ($value && $value == $option.optionId.toString()))
-            <option style="color: $option.value;" #if($value && $value == $option.optionId.toString())selected="selected"#end value="$option.optionId">$option.value</option>
+            <option style="color: $colorResolver.resolveColor($option.value);" #if($value && $value == $option.optionId.toString())selected="selected"#end current-color="$colorResolver.resolveColor($option.value)" value="$option.optionId">$option.value</option>
         #end
     #end
 </select>

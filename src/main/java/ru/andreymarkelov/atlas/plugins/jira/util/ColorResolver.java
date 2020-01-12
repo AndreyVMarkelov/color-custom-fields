@@ -153,9 +153,10 @@ public class ColorResolver {
         supportedColors.put("darkslategray", "#2F4F4F");
         supportedColors.put("black", "#000000");
         supportedColors.put("amber", "#FFBF00");
+        supportedColors.put("grey", "#808080");
     }
 
-    public String getHexColor(String color) {
+    public static String getHexColor(String color) {
         if (isBlank(color)) {
             return null;
         }
@@ -168,13 +169,13 @@ public class ColorResolver {
         try {
             return getColorString(Color.decode(color));
         } catch (NumberFormatException nfe) {
-            return getColorString(Color.white);
+            return color;
         }
     }
 
-    private String getColorString(Color color) {
+    private static String getColorString(Color color) {
         String rgb = toHexString(color.getRGB());
-        rgb = rgb.substring(2, rgb.length());
+        rgb = rgb.substring(2);
         return "#".concat(rgb);
     }
 }

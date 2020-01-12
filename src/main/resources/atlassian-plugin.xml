@@ -47,6 +47,10 @@
         <context>atl.general</context>
     </web-resource>
 
+    <!-- Components -->
+    <component name="Color Resolver" key="color-fields-color-resolver" class="ru.andreymarkelov.atlas.plugins.jira.colorfields.service.impl.ColorResolverImpl">
+        <interface>ru.andreymarkelov.atlas.plugins.jira.colorfields.service.ColorResolver</interface>
+    </component>
     <component key="ComponentFactory" name="Component Factory" class="com.atlassian.jira.util.JiraComponentFactory">
         <interface>com.atlassian.jira.util.ComponentFactory</interface>
     </component>
