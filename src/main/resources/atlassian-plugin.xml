@@ -39,7 +39,7 @@
     </customfield-searcher>
 
     <web-resource key="color-resources" name="Color Custom Fields Resources">
-        <resource type="download" name="color_field_script.js" location="/ru/andreymarkelov/atlas/plugins/jira/colorfields/js/color_field_script.js"/>
+        <dependency>com.atlassian.auiplugin:aui-select2</dependency>
         <resource type="download" name="colorPicker.css" location="/ru/andreymarkelov/atlas/plugins/jira/colorfields/css/colorPicker.css"/>
         <resource type="download" name="jquery.colorPicker.js" location="/ru/andreymarkelov/atlas/plugins/jira/colorfields/js/jquery.colorPicker.js"/>
         <resource type="download" name="arrow.png" location="/ru/andreymarkelov/atlas/plugins/jira/colorfields/images/arrow.png"/>

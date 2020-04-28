@@ -10,6 +10,7 @@ import com.atlassian.jira.issue.fields.layout.field.FieldLayoutItem;
 import com.atlassian.jira.issue.fields.rest.json.beans.JiraBaseUrls;
 import ru.andreymarkelov.atlas.plugins.jira.colorfields.service.ColorResolver;
 
+import javax.annotation.Nonnull;
 import java.util.Map;
 
 public class SelectColorCustomField extends SelectCFType {
@@ -26,8 +27,12 @@ public class SelectColorCustomField extends SelectCFType {
     }
 
     @Override
-    public Map<String, Object> getVelocityParameters(final Issue issue, final CustomField customField, final FieldLayoutItem fieldLayoutItem) {
-        final Map<String, Object> map = super.getVelocityParameters(issue, customField, fieldLayoutItem);
+    @Nonnull
+    public Map<String, Object> getVelocityParameters(
+            Issue issue,
+            CustomField customField,
+            FieldLayoutItem fieldLayoutItem) {
+        Map<String, Object> map = super.getVelocityParameters(issue, customField, fieldLayoutItem);
         map.put("colorResolver", colorResolver);
 
         if (issue == null) {

@@ -4,8 +4,8 @@ $webResourceManager.requireResource("ru.andreymarkelov.atlas.plugins.colorfields
     #if(${displayParameters.excel_view})
         <div style="display:inline-block; background-color:$!colorHex; width:50px; height:16px; text-align:left; border: thin solid #ccc">$!colorHex</div>
     #elseif(!${displayParameters.view_issue})
-        <div style="display:inline-block; background-color:$!colorHex; width:50px; height:16px; text-align:left; border: thin solid #ccc">$!colorHex</div>
+        <div style="display:inline-block; background-color: $colorResolver.resolveColor($!value.toString()); width:50px; height:16px; text-align:left; border: thin solid #ccc">$!colorHex</div>
     #else
-        <div style="display:inline-block; background-color:$!colorHex; width:50px; height:16px; text-align:left; border: thin solid #ccc"/>
+        <div style="display:inline-block; background-color: $colorResolver.resolveColor($!value.toString()); width:50px; height:16px; text-align:left; border: thin solid #ccc"/>
     #end
 #end
