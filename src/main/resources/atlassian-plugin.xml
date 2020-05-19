@@ -30,7 +30,7 @@
         <resource type="download" name="customfieldpreview.png" location="ru/andreymarkelov/atlas/plugins/jira/colorfields/images/color-picker.png"/>
     </customfield-type>
 
-    <customfield-searcher key="color-searcher" name="Select Color Custom Field Searcher" class="com.atlassian.jira.issue.customfields.searchers.SelectSearcher">
+    <customfield-searcher key="color-searcher" name="Select Color Custom Field Searcher" class="ru.andreymarkelov.atlas.plugins.jira.colorfields.field.ColorSelectSearcher">
         <description>The searcher for Select Color Custom Field</description>
         <resource type="velocity" name="search" location="/ru/andreymarkelov/atlas/plugins/jira/colorfields/templates/search-color-select.vm"/>
         <resource type="velocity" name="view" location="/ru/andreymarkelov/atlas/plugins/jira/colorfields/templates/view-searcher-color-select.vm"/>

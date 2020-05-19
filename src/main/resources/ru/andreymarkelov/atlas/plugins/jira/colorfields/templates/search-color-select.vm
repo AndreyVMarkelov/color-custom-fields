@@ -1,10 +1,22 @@
-$!{auiparams.put("controlHeaderClass", "aui-field-select")}
-#searcherEditHeader ($customField.id $customField.name)
-    <select class="select" id="searcher-$customField.id" name="$customField.id">
-        <option value="-1">$i18n.getText("common.filters.any")</option>
-        #foreach ($option in $configs.options)
-            <option #if ($value && $value.contains($option.optionId.toString()))selected="selected"#end value="$option.optionId" >$textutils.htmlEncode($option.value)</option>
-        #end
-    </select>
-#searcherEditFooter ($customField.id $customField.descriptionProperty.viewHtml)
+#disable_html_escaping()
+#if ($value)
+    #set ($selectedValues = $value)
+#end
+$!{auiparams.put("controlHeaderClass", "aui-field-multiselect")}
+#searcherEditHeader (${customField.id} ${customField.name})
+<select class="select js-default-checkboxmultiselect" id="searcher-$customField.id" multiple="multiple" name="$customField.id" size="#minSelectSize ($configs.options 1 5)">
+#foreach ($option in $allOptions)
+    #set ($isInvalid = $invalidOptions.contains($option)))
+    #set ($name = $textutils.htmlEncode($option.value))
+    <option #if ($isInvalid) class="invalid_sel" #end
+        #if ($selectedValues && $selectedValues.contains($option.optionId.toString())) selected="selected" #end
+        class="imagebacked"
+        #if ($isInvalid) #searchContextDescriptionTitleGeneral("common.concepts.value" $name) #else title="$name" #end
+        value="$option.optionId">
+        <span style="background-color: $colorResolver.resolveColor($name)"></span>
+        $name
+    </option>
+#end
+</select>
+#searcherEditFooter (${customField.id} ${customField.descriptionProperty.viewHtml})
 $!{auiparams.clear()}

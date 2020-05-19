@@ -1,5 +1,15 @@
+#disable_html_escaping()
 #searcherHeader ($customField)
-#if ($valueObject)
-    $textutils.htmlEncode($!valueObject.toString())
+#foreach ($option in $selectedOptions)
+    #set ($name = $textutils.htmlEncode($!option.toString()))
+    #if ($invalidOptions.contains($option))
+        <span class="invalid_sel" #searchContextDescriptionTitleGeneral("common.concepts.value" $name)>$name</span>#commaonly($selectedOptions)
+    #else
+        #if ($displayParameters && $displayParameters.checkboxmultiselect)
+        <div style="display:inline-block; background-color: $colorResolver.resolveColor($name); vertical-align: middle; width:16px; height:16px; text-align:left; border: thin solid #ccc"/>
+        #else
+        $name#commaonly($selectedOptions)
+        #end
+    #end
 #end
 #searcherFooter ($customField)
